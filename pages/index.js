@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import Particles from "react-particles-js";
 import "tachyons";
 
@@ -21,6 +21,26 @@ const particlesOptions = {
 };
 
 export default function Home() {
+  const [input, setInput] = useState("");
+
+  const onInputChange = (event) => {
+    console.log(event.target.value);
+  };
+
+  const onSubmit = () => {
+    console.log("Clicked !! ");
+    app.models
+      .predict("3583290e1d7e48b2b57f54497ebc2848", "https://samples.clarifai.com/metro-north.jpg")
+      .then(
+        function (response) {
+          // do something with responseconsole.log(response);
+        },
+        function (err) {
+          // there was an error
+        }
+      );
+  };
+
   return (
     <div>
       <Head>
@@ -32,12 +52,14 @@ export default function Home() {
 
       <Navigation />
       <Rank />
-      <ImageLinkForm />
+      <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
       {/*
         <FaceRecognition /> */}
       {/* <div className={styles.container}>
         <Footer />
-      </div> */}
+      </div> 
+        23, vid 4
+      */}
     </div>
   );
 }
