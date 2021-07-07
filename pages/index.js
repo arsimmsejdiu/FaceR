@@ -10,13 +10,13 @@ import Rank from "./components/Rank/Rank";
 
 const particlesOptions = {
   particles: {
-   number: {
-     value: 100,
-     density: {
-       enable: true,
-       value_area: 800
-     }
-   }
+    number: {
+      value: 100,
+      density: {
+        enable: true,
+        value_area: 800,
+      },
+    },
   },
 };
 
@@ -28,10 +28,7 @@ export default function Home() {
         <meta name="description" content="Face Recognition App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Particles
-        className="particles"
-        params={particlesOptions}
-      />
+      <Particles className="particles" params={particlesOptions} />
 
       <Navigation />
       <Rank />
@@ -41,7 +38,6 @@ export default function Home() {
       {/* <div className={styles.container}>
         <Footer />
       </div> */}
-        
     </div>
   );
 }
