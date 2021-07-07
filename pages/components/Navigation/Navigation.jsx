@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
+import Logo from "../Logo/Logo";
 
-export default function Navigation() {
-    return (
-        <div>
-            <h1>Navigation Bar</h1>
-        </div>
-    )
-}
+const Navigation = () => {
+  return (
+    <nav style={{ display: 'flex', justifyContent: 'space-between'}}>
+      <Logo />
+      <p className="f3 link dim black underline pa4 pointer">Sign Out</p>
+    </nav>
+  );
+};
+
+export default Navigation;

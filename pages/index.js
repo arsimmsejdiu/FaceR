@@ -1,25 +1,26 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import 'tachyons';
 
-import Footer from './components/footer';
-import Navigation from './components/Navigation/Navigation'
+import Footer from "./components/footer";
+import Navigation from "./components/Navigation/Navigation";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Face Recognition App</title>
         <meta name="description" content="Face Recognition App" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <Navigation />
-        {/* <Logo />
+      <Navigation />
+      {/* 
         <ImageLinkForm />
         <FaceRecognition /> */}
-      </main>
-      <Footer />
+      <div className={styles.container}>
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
