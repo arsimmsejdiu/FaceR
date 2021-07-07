@@ -5,6 +5,7 @@ import 'tachyons';
 import Footer from "./components/footer";
 import Navigation from "./components/Navigation/Navigation";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
+import Rank from "./components/Rank/Rank";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
 
       <Navigation />
+      <Rank />
       <ImageLinkForm />
         {/*
         <FaceRecognition /> */}
