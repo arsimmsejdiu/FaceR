@@ -4,6 +4,7 @@ import 'tachyons';
 
 import Footer from "./components/footer";
 import Navigation from "./components/Navigation/Navigation";
+import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 
 export default function Home() {
   return (
@@ -15,8 +16,8 @@ export default function Home() {
       </Head>
 
       <Navigation />
-      {/* 
-        <ImageLinkForm />
+      <ImageLinkForm />
+        {/*
         <FaceRecognition /> */}
       <div className={styles.container}>
         <Footer />

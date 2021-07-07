@@ -6,6 +6,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
 }
+button {
+  cursor: pointer;
+}
 
 a {
   color: inherit;
@@ -25,4 +28,9 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-track {
   background-color: transparent;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
