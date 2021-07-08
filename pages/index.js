@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Particles from "react-particles-js";
+import Clarifai from "clarifai";
 import "tachyons";
 
-import Footer from "./components/footer";
+// import Footer from "./components/footer";
 import Navigation from "./components/Navigation/Navigation";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm";
 import Rank from "./components/Rank/Rank";
+import FaceRecognition from "./components/FaceRecognition/FaceRecognition";
+
+const app = new Clarifai.App({
+  apiKey: "3583290e1d7e48b2b57f54497ebc2848",
+});
 
 const particlesOptions = {
   particles: {
@@ -22,21 +28,27 @@ const particlesOptions = {
 
 export default function Home() {
   const [input, setInput] = useState("");
+  const [ imageUrl, setImageUrl] = useState("");
 
   const onInputChange = (event) => {
-    console.log(event.target.value);
+    setInput(event.target.value);
   };
 
   const onSubmit = () => {
-    console.log("Clicked !! ");
+    setImageUrl(input)
     app.models
-      .predict("3583290e1d7e48b2b57f54497ebc2848", "https://samples.clarifai.com/metro-north.jpg")
+      .predict(
+        Clarifai.COLOR_MODEL,
+        input
+      )
       .then(
         function (response) {
-          // do something with responseconsole.log(response);
+          // do something with response console.log(response);
+          console.log(response);
         },
         function (err) {
           // there was an error
+          console.log(err);
         }
       );
   };
@@ -53,8 +65,7 @@ export default function Home() {
       <Navigation />
       <Rank />
       <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
-      {/*
-        <FaceRecognition /> */}
+      <FaceRecognition imageUrl={imageUrl} /> 
       {/* <div className={styles.container}>
         <Footer />
       </div> 
