@@ -34,17 +34,22 @@ export default function Home() {
     setInput(event.target.value);
   };
 
+  const reset = () => {
+    setInput("");
+    setImageUrl("");
+  }
+
   const onSubmit = () => {
     setImageUrl(input)
     app.models
       .predict(
-        Clarifai.COLOR_MODEL,
+        Clarifai.FACE_DETECT_MODEL,
         input
       )
       .then(
         function (response) {
           // do something with response console.log(response);
-          console.log(response);
+          console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
         },
         function (err) {
           // there was an error
@@ -64,7 +69,7 @@ export default function Home() {
 
       <Navigation />
       <Rank />
-      <ImageLinkForm onInputChange={onInputChange} onSubmit={onSubmit} />
+      <ImageLinkForm onInputChange={onInputChange} reset={reset} onSubmit={onSubmit} />
       <FaceRecognition imageUrl={imageUrl} /> 
       {/* <div className={styles.container}>
         <Footer />

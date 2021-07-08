@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: "Courier New", Courier, monospace;
   background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
+  overflow: auto;
 }
 button {
   cursor: pointer;
@@ -22,7 +23,7 @@ body::-webkit-scrollbar {
   width: 0.5rem;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #39b385;
+  background: linear-gradient(89deg, #ff5edf 0%, #04c8de 100%);
   border-radius: 50px;
 }
 body::-webkit-scrollbar-track {
@@ -34,7 +35,9 @@ body::-webkit-scrollbar-track {
   justify-content: center;
 }
 
-body , html, .particles {
+body,
+html,
+.particles {
   position: fixed;
   top: 0;
   right: 0;
